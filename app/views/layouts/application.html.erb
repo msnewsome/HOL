@@ -30,7 +30,7 @@
   <% end %>
 
   <nav class="flex items-center justify-between flex-wrap bg-gray-100 p-6">
-    <div class="text-purple-700 text-2xl lg:ml-12">
+    <div class="text-purple-700 text-2xl font-semibold lg:ml-12">
       <%= link_to "HandsOfLyfe", root_path%>
     </div>
     <div class="block lg:hidden mr-8">
@@ -47,23 +47,26 @@
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
+          <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="#">Services</a>
+        </li>
+        <% link_to "Dashboard", app_schedules_path, class: "" %>
+        <% link_to "Schedule an Appointment", new_app_schedule_path, class: "" unless admin? %>
+        <% link_to "Users", users_path, class: "" if admin? %>
+        <li class="mr-3">
+          <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="#">Contact</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
+          <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="#">link</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
+          <a class="inline-block text-gray-600 font-semibold hover:text-purple-700 py-2 px-4" href="#">link</a>
         </li>
       </ul>
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer bg-teal-600 hover:bg-teal-500 px-5 py-2 inline-block text-teal-100 hover:text-white rounded" %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer font-semibold bg-purple-300 hover:bg-purple-500 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
       <% else %>
-        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-teal-200 hover:bg-teal-400 mr-3 px-5 py-2 inline-block text-teal-800 hover:text-teal-900 rounded" %>
-        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-teal-200 hover:border-teal-400 mr-3 px-5 py-2 inline-block text-teal-200 hover:text-teal-400 rounded" %>
+        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-purple-300 hover:bg-purple-500 mr-3 px-5 py-2 inline-block text-purple-700 hover:text-purple-900 rounded" %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-purple-500 hover:border-purple-700 mr-3 px-5 py-2 inline-block text-purple-500 hover:text-purple-700 rounded" %>
       <% end %>
     </div>
   </nav>

@@ -29,41 +29,44 @@
     <% end %>
   <% end %>
 
-  <nav class="flex items-center justify-between flex-wrap bg-teal-900 p-6 fixed w-full z-10 top-0">
-    <div class="flex items-center text-white">
-      <%= link_to "HandsOfLyfe", root_path, class:"text-white text-2xl no-underline hover:text-white hover:no-underline" %>
+  <nav class="flex items-center justify-between flex-wrap bg-gray-100 p-6">
+    <div class="text-purple-700 text-2xl lg:ml-12">
+      <%= link_to "HandsOfLyfe", root_path%>
     </div>
-
-    <div class="block lg:hidden">
-      <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+    <div class="block lg:hidden mr-8">
+      <button id="nav-toggle" class="flex items-center px-3 py-2 rounded text-teal-100 border border-teal-100">
         <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
       </button>
     </div>
+    <% if user_signed_in? %>
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        Welcome, <%= current_user.name %>
+      </div>
+    <% else %>
+    <% end %>
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-          Welcome, <%= current_user.name %>
-        </div>
       <ul class="list-reset lg:flex justify-end flex-1 items-center">
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Active</a>
+          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
+          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
+          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
         </li>
         <li class="mr-3">
-          <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
+          <a class="inline-block text-purple-900 no-underline hover:text-purple-600 py-2 px-4" href="#">link</a>
         </li>
       </ul>
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"cursor-pointer bg-teal-600 hover:bg-teal-500 px-5 py-2 inline-block text-teal-100 hover:text-white rounded" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class:"cursor-pointer font-semibold bg-teal-200 hover:bg-teal-400 mr-3 px-5 py-2 inline-block text-teal-800 hover:text-teal-900 rounded" %>
+        <%= link_to "Sign Up", new_user_registration_path, class:"cursor-pointer font-semibold border border-teal-200 hover:border-teal-400 mr-3 px-5 py-2 inline-block text-teal-200 hover:text-teal-400 rounded" %>
+      <% end %>
     </div>
   </nav>
-
-  <!--Container-->
-  <div class="container mx-auto bg-white mt-24 md:mt-18">
-
-  </div>
 
   <script>
       //Javascript to toggle the menu
